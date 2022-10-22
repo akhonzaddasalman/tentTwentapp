@@ -14,22 +14,22 @@ class Movie {
   static final List<Movie> movieList = [
     Movie(
       movieId: '1',
-      movieName: 'Taco Bell',
+      movieName: 'The Sky Line',
       movieImage: 'assets/Images/1.png',
     ),
     Movie(
       movieId: '2',
-      movieName: 'Taco Bell',
+      movieName: 'Battle Ground',
       movieImage: 'assets/Images/2.png',
     ),
     Movie(
       movieId: '3',
-      movieName: 'Taco Bell',
+      movieName: 'Dubai khalifa',
       movieImage: 'assets/Images/3.png',
     ),
     Movie(
       movieId: '4',
-      movieName: 'Taco Bell',
+      movieName: 'Red Line',
       movieImage: 'assets/Images/4.png',
     ),
     Movie(

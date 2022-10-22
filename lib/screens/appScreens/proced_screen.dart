@@ -40,8 +40,13 @@ class _CinemaHallState extends State<CinemaHall> with TickerProviderStateMixin {
         preferredSize: Size.fromHeight(90.h),
         child: Padding(
           padding: const EdgeInsets.only(top: 28.0),
-          child: buildAppBar(Icons.arrow_back_ios, "The king's Man",
-              'March 5,2022 | 12:30 Hall 1'),
+          child: InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: buildAppBar(Icons.arrow_back_ios, "The king's Man",
+                'March 5,2022 | 12:30 Hall 1'),
+          ),
         ),
       ),
       body: SafeArea(

@@ -16,22 +16,7 @@ class WatchScreen extends StatefulWidget {
 }
 
 class _WatchScreenState extends State<WatchScreen> {
-  List<MovieModel> movieList = [];
 
-  Future<List<MovieModel>> getMovieApi ()async{
-    final response = await http.get(Uri.parse('https://api.themoviedb.org/3/movie/upcoming?api_key=4b3b5ba9832a6fb4ded4095a0e5676bf'));
-  var data = jsonDecode(response.body.toString());
-  if(response.statusCode == 200){
-  for(Map i in data){
-    movieList.add(MovieModel.fromJson(i));
-  }
-  return movieList;
-  }else{
-    return movieList;
-  }
-
-
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,26 +37,21 @@ class _WatchScreenState extends State<WatchScreen> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child: FutureBuilder(
-                  future: getMovieApi(),
-                    builder: (context, AsyncSnapshot<List<MovieModel>> snapshot){
-                    return ListView.builder(
-                      padding: EdgeInsets.symmetric(horizontal: 21.w),
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: Movie.movieList.length,
-                      itemBuilder: (context, index) => InkWell(
-                        onTap: () {},
-                        child: MovieList(
-                          image: Movie.movieList[index].movieImage.toString()
-                              .toString(),
-                          title: Movie.movieList[index].movieName.toString()
-                              .toString(),
-                        ),
-                      ),
-                    );
-                    }
+                child: ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 21.w),
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: Movie.movieList.length,
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {},
+                child: MovieList(
+                  image: Movie.movieList[index].movieImage.toString()
+                      .toString(),
+                  title: Movie.movieList[index].movieName.toString()
+                      .toString(),
                 ),
+              ),
+            )
               ),
             )
           ],
